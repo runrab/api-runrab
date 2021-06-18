@@ -14,7 +14,7 @@
 module.exports = (req, res) => {
   var fs = require('fs');	
   var path = require("path")
-  var file = path.dirname(__dirname) + '../api_runrab.db';;  //这里写的就是数据库文件的路径  
+  var file = path.dirname(__filename) + '../api_runrab.db';;  //这里写的就是数据库文件的路径  
   var exists = fs.existsSync(file);  
   console.log(exists);
   var Database = require('better-sqlite3');
