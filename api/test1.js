@@ -13,16 +13,13 @@
 }*/
 module.exports = (req, res) => {
   var fs = require('fs');	
-  var options=require('options');	
   var path = require("path")
   var file = path.resolve('api_runrab.db');;  //这里写的就是数据库文件的路径  
   var exists = fs.existsSync(file);  
   console.log(exists);
   //var Database = require('better-sqlite3');
-  //var db = new Database(file,{ verbose: console.log });	
-  //var row = db.prepare('SELECT url FROM img WHERE id=100');
-  const db = require('better-sqlite3')(file, options);
-  const row = db.prepare('SELECT url FROM img WHERE id=100');  
+  var db = new Database(file,{ verbose: console.log });	
+  var row = db.all('SELECT url FROM img WHERE id=100');
   db.close();
   console.log(row);
   console.log("test");
