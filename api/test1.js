@@ -24,6 +24,7 @@ module.exports = (req, res) => {
   console.log(row);
   console.log("test");
   //console.log(row.url); 
+  console.log(row.url);
   //db.close();
   //url= row.url
   //res.redirect(url);	
