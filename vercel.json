@@ -7,6 +7,6 @@
     {
       "source": "/api/test",
       "destination": "/test"
-    },		
+    }		
   ]
 }
