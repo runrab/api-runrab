@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/img",
-      "destination": "/api/img"
+      "source": "/img/:id",
+      "destination": "/api/img/:id"
     },
     {
       "source": "/test",
