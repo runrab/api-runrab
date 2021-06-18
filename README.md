@@ -25,11 +25,57 @@ res.redirect(url): A function to redirect to the URL derived from the specified 
 res.redirect(statusCode, url): A function to redirect to the URL derived from the specified path, with specified HTTP status code.
 ```
 
+## vercel重写
 
+## [无效的路由源模式](https://vercel.com/docs/platform/frequently-asked-questions#invalid-route-source-pattern)
 
+该`source`属性遵循以下语法[正则表达式路径](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0)，不是`RegExp`语法。
 
+例如，负前瞻必须包含在一个组中。
 
+前
 
+```
+{
+  "source": "/feedback/(?!general)",
+  "destination": "/api/feedback/general"
+}
+```
+
+后
+
+```
+{
+  "source": "/feedback/((?!general).*)",
+  "destination": "/api/feedback/general"
+}
+```
+
+## [无效的路由目标段](https://vercel.com/docs/platform/frequently-asked-questions#invalid-route-destination-segment)
+
+该`source`属性遵循以下语法[正则表达式路径](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0).
+
+这意味着冒号 ( `:`) 定义了一个[命名段参数](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0#named-parameters).
+
+`destination`属性中定义的命名段参数也必须在`source`属性中定义。
+
+前
+
+```
+{
+  "source": "/feedback/:type",
+  "destination": "/api/feedback/:id"
+}
+```
+
+后
+
+```
+{
+  "source": "/feedback/:id",
+  "destination": "/api/feedback/:id"
+}
+```
 
 
 
