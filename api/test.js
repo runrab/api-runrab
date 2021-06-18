@@ -1,41 +1,53 @@
-/**module.exports = (req, res) => {
-  const db = require('better-sqlite3')('../api_runrab.db',options);
-  const row = db.prepare('SELECT * FROM img WHERE id=10');
-  //console.log("test");
-  //console.log(row.url); 
-  //db.close();
-  //url= row.url
-  //res.redirect(url);
-  res.json({
-    json: true
-  })	
-	
-}*/
 module.exports = (req, res) => {
-  var fs = require('fs');	
-  var options=require('options');	
-  var path = require("path")
-  var file = path.resolve('api_runrab.db');;  //这里写的就是数据库文件的路径  
-  var exists = fs.existsSync(file);  
-  console.log(exists);
-  //var Database = require('better-sqlite3');
-  //var db = new Database(file,{ verbose: console.log });	
-  //var row = db.prepare('SELECT url FROM img WHERE id=100');
-  const db = require('better-sqlite3')(file, options);
-  const row = db.prepare('SELECT url FROM img WHERE id=100');  
-  db.close();
-  console.log(row);
-  console.log("test");
-  //console.log(row.url); 
-  //db.close();
-  //url= row.url
-  //res.redirect(url);	
-  //console.log(row);
-  //res.redirect(row);
-  res.json({
-    json: true
-  })	  
+
+/// Import SqliteDB.
+ 
+  var SqliteDB = require('/db/sqlite.js').SqliteDB;
+
+  var file = "Gis1.db";
+ 
+  var sqliteDB = new SqliteDB(file);
+ 
+ 
+ 
+/// create table.
+ 
+  var createTileTableSql = "create table if not exists tiles(level INTEGER, column INTEGER, row INTEGER, content BLOB);";
+ 
+  var createLabelTableSql = "create table if not exists labels(level INTEGER, longitude REAL, latitude REAL, content BLOB);";
+ 
+  sqliteDB.createTable(createTileTableSql);
+ 
+  sqliteDB.createTable(createLabelTableSql);
+ 
+ 
+ 
+/// insert data.
+ 
+  var tileData = [[1, 10, 10], [1, 11, 11], [1, 10, 9], [1, 11, 9]];
+ 
+  var insertTileSql = "insert into tiles(level, column, row) values(?, ?, ?)";
+ 
+  sqliteDB.insertData(insertTileSql, tileData);
+
+/// query data.
+  var querySql = 'select * from tiles where level = 1 and column >= 10 and column <= 11 and row >= 10 and row <=11';
+  sqliteDB.queryData(querySql, dataDeal);
+ 
+/// update data.
+  var updateSql = 'update tiles set level = 2 where level = 1 and column = 10 and row = 10';
+  sqliteDB.executeSql(updateSql);
+/// query data after update.
+  querySql = "select * from tiles where level = 2";
+  sqliteDB.queryData(querySql, dataDeal);
+ 
+  sqliteDB.close();
+
+  function dataDeal(objects){
+      for(var i = 0; i < objects.length; ++i){
+          console.log(objects[i]);
+      }
+  }
+	//url='https://tva3.sinaimg.cn/large/87c01ec7gy1fsnqqshib2j21kw0w0apc.jpg'
+	//res.redirect(url)
 }
-
-
-
