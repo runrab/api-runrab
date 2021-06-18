@@ -20,6 +20,8 @@
 module.exports = (req, res) => {
   var fs = require('fs');	
   var path = require("path")
+  var mid=Math.floor(Math.random()*10)+1；
+  console.log(mid);
   var file = path.resolve('api_runrab.db');;  //这里写的就是数据库文件的路径  
   var exists = fs.existsSync(file);  
   console.log(exists);
