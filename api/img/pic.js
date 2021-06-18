@@ -20,7 +20,6 @@
 module.exports = (req, res) => {
   var fs = require('fs');	
   var path = require("path")
-  var  = require("Math")  
   var mid=Math.floor(Math.random()*1000)+1;
   console.log(mid);
   var file = path.resolve('api_runrab.db');;  //这里写的就是数据库文件的路径  
