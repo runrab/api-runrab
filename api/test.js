@@ -7,7 +7,7 @@ module.exports = (req, res) => {
   //url= row.url
   //res.redirect(url);
   res.json({
-    row.url: true
+    json: true
   })	
 	
 }
