@@ -175,3 +175,8 @@ https://github.com/mapbox/node-pre-gyp#readme
 npm uninstall node-pre-gyp --save
 npm install @mapbox/node-pre-gyp --save
 ```
+
+路径问题
+
+https://github.com/imsobear/blog/issues/48
+
