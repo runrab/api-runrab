@@ -23,15 +23,15 @@ module.exports = (req, res) => {
   db.close();
   console.log(row);
   console.log("test");
-  console.log(typeof row[0],typeof JSON.parse(row[0],JSON.parse(row[0]); 
-  console.log(typeof row[0].url);
+  //console.log(typeof row[0],typeof JSON.parse(row[0],JSON.parse(row[0]); 
+  //console.log(typeof row[0].url);
   //var surl = JSON.parse(row[0]);
   //db.close();
   //url= row.url
   //res.redirect(url);	
   //console.log(row);
-  //res.redirect(row);
-  res.redirect(row[0])
+
+  res.redirect(row[0].url)
 }
 
 
