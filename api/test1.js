@@ -19,7 +19,7 @@ module.exports = (req, res) => {
   console.log(exists);
   var Database = require('better-sqlite3');
   var db = new Database(file,{ verbose: console.log });	
-  var row = db.all('SELECT url FROM img WHERE id=100');
+  var row = db.prepare('SELECT url FROM img WHERE id=100').all();
   db.close();
   console.log(row);
   console.log("test");
