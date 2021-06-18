@@ -27,6 +27,40 @@ res.redirect(statusCode, url): A function to redirect to the URL derived from th
 
 ## vercel重写
 
+
+
+```
+{
+  "rewrites": [
+    {
+    //注释不允许写  访问路径匹配规则 id为代称即 /img/此处的内容即为id
+      "source": "/img/:id",
+      // 重写的目标地址
+      //注意 demo: /img 不会被重写到 /api/img  /img/index 会被重写到 /api/img/index  /img/后必须有内容
+      "destination": "/api/img/:id"
+    },
+    {
+      "source": "/img",
+      "destination": "/api/img"
+    },	
+    {
+      "source": "/test/:id",
+      "destination": "/api/test/:id"
+    },
+    {
+      "source": "/test",
+      "destination": "/api/test"
+    },	
+    {
+      "source": "/",
+      "destination": "/api"
+    }		
+  ]
+}
+```
+
+
+
 ## [无效的路由源模式](https://vercel.com/docs/platform/frequently-asked-questions#invalid-route-source-pattern)
 
 该`source`属性遵循以下语法[正则表达式路径](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0)，不是`RegExp`语法。

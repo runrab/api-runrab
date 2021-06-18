@@ -9,13 +9,13 @@
       "destination": "/api/img"
     },	
     {
-      "source": "/test/:id",
-      "destination": "/api/test/:id"
-    },
-    {
       "source": "/test",
       "destination": "/api/test"
     },	
+    {
+      "source": "/test/:id",
+      "destination": "/api/test/:id"
+    },
     {
       "source": "/",
       "destination": "/api"
