@@ -23,14 +23,14 @@ module.exports = (req, res) => {
   db.close();
   console.log(row);
   console.log("test");
-  console.log(row[0][url]); 
+  console.log(row[0]); 
   //var surl = JSON.parse(row[0]);
   //db.close();
   //url= row.url
   //res.redirect(url);	
   //console.log(row);
   //res.redirect(row);
-  res.send(row[0][0])  
+  res.redirect(row[0])
 }
 
 
