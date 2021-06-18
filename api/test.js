@@ -19,14 +19,15 @@ module.exports = (req, res) => {
   console.log(exists);
   var Database = require('better-sqlite3');
   var db = new Database(file,{ verbose: console.log });	
-  var row = db.prepare('SELECT * FROM img WHERE id=10');
+  var row = db.prepare('SELECT url FROM img WHERE id=10');
+  db.close();
   //console.log("test");
   //console.log(row.url); 
   //db.close();
   //url= row.url
   //res.redirect(url);	
   //console.log(row);
-  res.redirect(row.url);
+  res.redirect(row);
 }
 
 
