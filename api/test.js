@@ -25,9 +25,9 @@ module.exports = (req, res) => {
   //db.close();
   //url= row.url
   //res.redirect(url);	
-  console.log(row);
+  //console.log(row);
   res.json({
-    json: true
+    row: true
   })
 }
 
