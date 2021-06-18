@@ -11,15 +11,10 @@ module.exports = (req, res) => {
  
  
 /// create table.
- 
-  var createTileTableSql = "create table if not exists tiles(level INTEGER, column INTEGER, row INTEGER, content BLOB);";
- 
+  var createTileTableSql = "create table if not exists tiles(level INTEGER, column INTEGER, row INTEGER, content BLOB);"
   var createLabelTableSql = "create table if not exists labels(level INTEGER, longitude REAL, latitude REAL, content BLOB);";
- 
   sqliteDB.createTable(createTileTableSql);
- 
   sqliteDB.createTable(createLabelTableSql);
- 
  
  
 /// insert data.

@@ -19,6 +19,7 @@
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.5",
     "better-sqlite3": "^7.4.1",
-    "canvas": "^2.8.0"
+    "canvas": "^2.8.0",
+	"sqlite3": "^5.0.2"
   }
 }
