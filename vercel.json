@@ -5,9 +5,17 @@
       "destination": "/api/img/:id"
     },
     {
+      "source": "/img",
+      "destination": "/api/img"
+    },	
+    {
+      "source": "/test/:id",
+      "destination": "/api/test/:id"
+    },
+    {
       "source": "/test",
       "destination": "/api/test"
-    },
+    },	
     {
       "source": "/",
       "destination": "/api"
