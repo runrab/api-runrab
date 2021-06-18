@@ -1,8 +1,16 @@
 {
   "rewrites": [
     {
+      "source": "/img",
+      "destination": "/api/img"
+    },
+    {
+      "source": "/test",
+      "destination": "/api/test"
+    },
+    {
       "source": "/",
-      "destination": "/img"
-    }	
+      "destination": "/api"
+    }		
   ]
 }
