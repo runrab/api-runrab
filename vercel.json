@@ -5,8 +5,8 @@
       "destination": "/api"
     }
   ]
-   "routes": [
+  "routes": [
     { "handle": "filesystem" },
-    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+    { "src": "/(.*)", "status": 404, "dest": "/web/html/404.html" }
   ]
 }
