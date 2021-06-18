@@ -30,7 +30,7 @@ module.exports = (req, res) => {
   //res.redirect(url);	
   //console.log(row);
   //res.redirect(row);
-  res.send(row[1])  
+  res.send(row[0])  
 }
 
 
