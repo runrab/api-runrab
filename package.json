@@ -8,12 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shfshanyue/vercel-api.git"
+    "url": "git+https://github.com/runrab/api-runrab.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shfshanyue/vercel-api/issues"
+    "url": "https://github.com/runrab/api-runrab/issues"
   },
-  "homepage": "https://github.com/shfshanyue/vercel-api#readme"
+  "homepage": "https://github.com/runrab/api-runrab#readme",
+  "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.5",
+    "better-sqlite3": "^7.4.1",
+    "canvas": "^2.8.0"
+  }
 }
