@@ -10,7 +10,7 @@ module.exports = (req, res) => {
   console.log(mid);
   var Database = require('better-sqlite3');
   var db = new Database(file,{ verbose: console.log });	
-  var row = db.prepare("SELECT url FROM img WHERE id='connection.escape(mid)'").all();
+  var row = db.prepare('SELECT url FROM img WHERE id=100').all();
   db.close();
   res.redirect(row[0].url)
 }
