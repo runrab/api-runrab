@@ -7,9 +7,10 @@ module.exports = (req, res) => {
   var file = path.resolve('api_runrab.db');;  //这里写的就是数据库文件的路径  
   //var exists = fs.existsSync(file);  
   //console.log(exists);
+  console.log(mid);
   var Database = require('better-sqlite3');
   var db = new Database(file,{ verbose: console.log });	
-  var row = db.prepare('SELECT url FROM img WHERE id=?',mid).all();
+  var row = db.prepare('SELECT url FROM img WHERE id=$mid').all();
   db.close();
   res.redirect(row[0].url)
 }
