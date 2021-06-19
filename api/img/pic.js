@@ -14,8 +14,6 @@
   db.close();
   res.redirect(row[0].url)
 }
-
-
 */
 module.exports = (req, res) => {
   var fs = require('fs');	
