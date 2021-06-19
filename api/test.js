@@ -2,7 +2,7 @@ module.exports = (req, res) => {
 
 /// Import SqliteDB.
  
-  var SqliteDB = require('/data/sqlite.js').SqliteDB;
+  var SqliteDB = require('/db/sqlite.js').SqliteDB;
 
   var file = "Gis1.db";
  
@@ -39,9 +39,9 @@ module.exports = (req, res) => {
   sqliteDB.close();
 
   function dataDeal(objects){
- for(var i = 0; i < objects.length; ++i){
-  console.log(objects[i]);
-    }
+      for(var i = 0; i < objects.length; ++i){
+          console.log(objects[i]);
+      }
   }
 	//url='https://tva3.sinaimg.cn/large/87c01ec7gy1fsnqqshib2j21kw0w0apc.jpg'
 	//res.redirect(url)

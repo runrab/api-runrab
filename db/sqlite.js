@@ -8,7 +8,7 @@ DB.SqliteDB = function(file){
  
     DB.exist = fs.existsSync(file);
     if(!DB.exist){
-        console.log("Creating data file!");
+        console.log("Creating db file!");
         fs.openSync(file, 'w');
     };
 };
