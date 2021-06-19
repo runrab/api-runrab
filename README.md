@@ -197,6 +197,21 @@ ode安装node-pre-gyp报错的解决方案
 npm install node-gyp -g
 ```
 
+获取ip
+
+```
+var http = require('http')
+var server = http.createServer(function (req,res) {
+	console.log(req.headers['x-forwarded-for'] ); // 判断是否有反向代理
+	console.log(req.socket.remoteAddress ); 	  // 判断后端的 socket 的 IP
+	let ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+	res.end(ip)
+})
+server.listen('9098')
+```
+
+from https://www.cnblogs.com/walkermag/p/13281852.html
+
 
 
 # nrm 报[TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string
