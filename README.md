@@ -317,3 +317,26 @@ npm install @mapbox/node-pre-gyp --save
 
 https://github.com/imsobear/blog/issues/48
 
+
+
+在以往的版本中，npm安装遇到自动解决的依赖冲突时，会发出警告但不会阻止安装。但是在npm7中，则会阻止安装。
+       通过检索，发现可以使用以下命令安装
+
+```
+npm i --legacy-peer-deps
+```
+
+1
+然而，还是报错了
+
+```
+npm ERR! code EINTEGRITY
+```
+
+1
+这个可以通过清除缓存来解决
+
+```
+npm cache clean --force
+```
+
