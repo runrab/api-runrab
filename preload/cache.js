@@ -1,0 +1,1 @@
+//sqlite缓存到内存   暂时不用buffer

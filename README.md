@@ -5,7 +5,19 @@
 
 
 
-构建buffer缓冲 sqlite
+### 构建buffer缓冲 sqlite
+
+暂时不用
+
+#### 考虑使用 node-cache实现地址：
+
+```
+https://www.npmjs.com/package/node-cache   
+```
+
+
+
+
 
 
 
@@ -175,6 +187,15 @@ nrm ls
 
 
 sqlite3需要  npm install node-pre-gyp  --save
+
+
+
+
+
+```
+ode安装node-pre-gyp报错的解决方案
+npm install node-gyp -g
+```
 
 
 
