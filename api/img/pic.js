@@ -38,7 +38,6 @@ module.exports = (req, res) => {
   //url= row.url
   //res.redirect(url);	
   //console.log(row);
-
   res.redirect(row[0].url)
 }
 
