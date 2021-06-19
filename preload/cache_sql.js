@@ -32,8 +32,8 @@ function sqlDeal(){
 
      sqliteDB.queryData(querySql, dataDeal);
      */
-    var querySql = 'SELECT * FROM img WHERE id=100';
-
+    //var querySql = 'SELECT * FROM img WHERE id=100';
+    var querySql = 'SELECT * FROM img';
     sqliteDB.queryData(querySql, dataDeal);
 
 /// update data.
@@ -55,44 +55,57 @@ function sqlDeal(){
 }
 
 
-
+//node-cache
 function dataDeal(objects){
     const NodeCache = require( "node-cache" );
     const myCache = new NodeCache({ stdTTL: 100,checkperiod:120 });
     value=undefined
     if ( value == undefined ){
         // handle miss!
+        //console.log(JSON.stringify(objects));
+        //console.log(typeof objects);
         for(var i = 0; i < objects.length; ++i){
             const key=i;
             const value = myCache.get(key);
+            //const value1 = myCache.mget(key);
             //console.log(objects[i]);
-            myCache.set("i",objects[i]);
+            //myCache.set("i",objects[i]);
+            myCache.set(`${i}`,objects[i]);
+            // myCache.set(`${i}`,objects[i].url); 加.url 则console.log(myCache.get("100"));不加
+            //测试 但是当 myCache.get("i").url 在循环外时会找不到url 应该是 nodejs中de url变量导致
+            if(i==100){
+                console.log(myCache.get(`${i}`).url);
+            }
         }
-
+        //console.log(myCache.get("100").url);
     }
     /**
     for(var i = 0; i < objects.length; ++i){
         console.log(objects[i]);
 
     }*/
-
+/**
     for(var i = 0; i < objects.length; ++i){
         //console.log(myCache.get("i"));
         console.log(myCache.get("i").url);
     }
-
+*/
 }
 
+sqlDeal();
 //定时执行 setTimeout(sqlDeal,3000) 毫秒  第三个为sqlDel传参函数
 //setTimeout(sqlDeal,3000)
 
+/**
 //用node-schedule实现
 var schedule = require('node-schedule');
 
 function scheduleCronstyle(){
-    schedule.scheduleJob('1-10 * * * * *', function(){
+    //每天1点更新
+    schedule.scheduleJob('10 0 1 * * *', function(){
         //console.log('scheduleCronstyle:' + new Date());
         sqlDeal();
     });
 }
 scheduleCronstyle();
+ */
