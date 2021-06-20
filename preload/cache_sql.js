@@ -54,11 +54,15 @@ function sqlDeal(){
     sqliteDB.close();
 }
 
+function netCache() {
+    const NodeCache = require( "node-cache" );
+    const myCache = new NodeCache({ stdTTL: 360000,checkperiod:12000 });
+    return myCache;
+}
 
 //node-cache
 function dataDeal(objects){
-    const NodeCache = require( "node-cache" );
-    const myCache = new NodeCache({ stdTTL: 100,checkperiod:120 });
+    const myCache=netCache();
     value=undefined
     if ( value == undefined ){
         // handle miss!
@@ -93,6 +97,8 @@ function dataDeal(objects){
 }
 
 sqlDeal();
+
+
 //定时执行 setTimeout(sqlDeal,3000) 毫秒  第三个为sqlDel传参函数
 //setTimeout(sqlDeal,3000)
 
