@@ -16,8 +16,8 @@
 }
 */
 module.exports = (req, res) => {
-  const SqliteDB = require('/preload/better.js').SqliteDB;
   let path = require("path");
+  const SqliteDB = require(path.resolve('/preload/better.js')).SqliteDB;
 //绝对路径
   let file = path.resolve('../api_runrab.db');
 //var file = "api_runrab.db";
