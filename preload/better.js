@@ -99,8 +99,8 @@ DB.SqliteDB.prototype.insertData = function(sql, objects){
     });
 };
 
-DB.SqliteDB.prototype.queryData = function(sql, callback){
-    DB.db.all(sql, function(err, rows){
+DB.SqliteDB.prototype.queryData = function(sql,mid, callback){
+    DB.db.all(sql, mid,function(err, rows){
         if(null != err){
             DB.printErrorInfo(err);
             return;

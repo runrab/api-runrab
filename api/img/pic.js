@@ -20,9 +20,10 @@ module.exports = (req, res) => {
   let file = path.resolve('api_runrab.db');
 //var file = "api_runrab.db";
   const sqliteDB = new SqliteDB(file);
+  const mid=Math.random.floor(1000)+1;
 //sql区域==========
-  const querySql='SELECT * FROM img where id=100';
-  let picUrl = sqliteDB.queryData(querySql, dataDeal);
+  const querySql='SELECT * FROM img where id=?';
+  let picUrl = sqliteDB.queryData(querySql,mid, dataDeal);
   //console.log(picUrl);
   function dataDeal(objects) {
     //console.log(objects.url);

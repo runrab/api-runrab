@@ -30,9 +30,9 @@ sqliteDB.insertData(insertTileSql, tileData);
  */
 /// query data.
 /// query data after update.
-
-var querySql = 'select * from img where id=200';
-sqliteDB.queryData(querySql, dataDeal);
+    const mid=200;
+var querySql = 'select * from img where id=?';
+sqliteDB.queryData(querySql, mid,dataDeal);
 
 sqliteDB.close();
 
