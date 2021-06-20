@@ -1,7 +1,5 @@
 /**module.exports = (req, res) => {
   // npm install --save random-int
-  var randomInt = require('random-int');	
-  var mid=randomInt(1, 1000);
   var fs = require('fs');	
   var path = require("path")
   var file = path.resolve('api_runrab.db');;  //这里写的就是数据库文件的路径  
@@ -28,7 +26,7 @@ module.exports = (req, res) => {
   //console.log(picUrl);
   function dataDeal(objects) {
     //console.log(objects.url);
-    console.log(objects[0].url);
+    //console.log(objects[0].url);
     res.redirect(objects[0].url)
   }
   //res.redirect(picUrl)
