@@ -4,6 +4,7 @@ module.exports = (req, res) => {
     let file = path.resolve('api_runrab.db');
     const sqliteDB = new SqliteDB(file);
     const mid=Math.random.floor(1000)+1;
+    //多个的话 mid 为数组 [ , ]
     const querySql='SELECT * FROM img where id=?';
     sqliteDB.queryData(querySql, mid,dataDeal);
     function dataDeal(objects) {
