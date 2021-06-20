@@ -25,10 +25,13 @@ module.exports = (req, res) => {
 //sql区域==========
   const querySql='SELECT * FROM img where id=100';
   let picUrl = sqliteDB.queryData(querySql, dataDeal);
+  //console.log(picUrl);
   function dataDeal(objects) {
-      console.log(objects.url);
+    //console.log(objects.url);
+    console.log(objects[0].url);
+    res.redirect(objects[0].url)
   }
-  res.redirect(picUrl)
+  //res.redirect(picUrl)
 }
 
 
