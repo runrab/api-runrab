@@ -16,11 +16,39 @@
 }
 */
 module.exports = (req, res) => {
-  var fs = require('fs');	
-  var path = require("path")
+  const SqliteDB = require('/preload/better.js').SqliteDB;
+  let path = require("path");
+//绝对路径
+  let file = path.resolve('../api_runrab.db');
+//var file = "api_runrab.db";
+  const sqliteDB = new SqliteDB(file);
+//sql区域==========
+  const querySql='SELECT * FROM img where id=100';
+  let picUrl = sqliteDB.queryData(querySql, dataDeal);
+  function dataDeal(objects) {
+      console.log(objects.url);
+  }
+  res.redirect(picUrl)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  //res.redirect();
+  /**
+  var fs = require('fs');
+  path = require("path");
   var mid=Math.floor(Math.random()*1000)+1;
   console.log(mid);
-  var file = path.resolve('api_runrab.db');;  //这里写的就是数据库文件的路径  
+  file = path.resolve('api_runrab.db');;  //这里写的就是数据库文件的路径
   var exists = fs.existsSync(file);  
   console.log(exists);
   var Database = require('better-sqlite3');
@@ -36,8 +64,8 @@ module.exports = (req, res) => {
   //url= row.url
   //res.redirect(url);	
   //console.log(row);
-  res.redirect(row[0].url)
-}
+  res.redirect(row[0].url)  */
+
 
 
 
