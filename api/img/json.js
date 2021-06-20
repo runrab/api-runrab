@@ -6,11 +6,6 @@ module.exports = (req, res) => {
     const querySql='SELECT * FROM img where id=100';
     sqliteDB.queryData(querySql, dataDeal);
     function dataDeal(objects) {
-      //console.log(objects.url);
-      //console.log(objects[0].url);
-      res.json({
-        objects: true
-      })
+      res.json(objects[0])
     }
-
 }
