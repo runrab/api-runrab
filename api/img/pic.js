@@ -19,7 +19,7 @@ module.exports = (req, res) => {
   let path = require("path");
   const SqliteDB = require('./better.js').SqliteDB;
 //绝对路径
-  let file = path.resolve('../api_runrab.db');
+  let file = path.resolve('api_runrab.db');
 //var file = "api_runrab.db";
   const sqliteDB = new SqliteDB(file);
 //sql区域==========
