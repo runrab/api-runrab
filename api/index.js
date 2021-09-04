@@ -9,7 +9,7 @@ module.exports = (req, res) => {
     return preNumber + randam;
   }
   const db = require('better-sqlite3')('api_runrab.db', options);
-  const row = db.prepare('SELECT * FROM users WHERE id=?').get(getNumberUid(2000));
+  const row = db.prepare('SELECT * FROM users WHERE id=?').get(200);
   console.log("aaa");
 }
 
