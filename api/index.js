@@ -8,10 +8,9 @@ module.exports = (req, res) => {
     const randam = Math.floor(Math.random() * precision);
     return preNumber + randam;
   }
-
   const db = require('better-sqlite3')('api_runrab.db', options);
   const row = db.prepare('SELECT * FROM users WHERE id=?').get(getNumberUid(2000));
-  console.log(row.url);
+  console.log("aaa");
 }
 
 
